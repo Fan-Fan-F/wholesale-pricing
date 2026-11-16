@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B 阶梯定价 · 报价单生成器</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="wrap">
+  <header class="head">
+    <h1>🏭 B2B 阶梯定价与报价单</h1>
+    <p>客户等级 × 数量阶梯双重定价，一键生成正式报价单</p>
+  </header>
+
+  <div class="layout">
+    <section class="card">
+      <h2>定价配置</h2>
+      <label>选择商品
+        <select id="productSelect"></select>
+      </label>
+      <label>客户等级
+        <div class="tier-row" id="tierRow"></div>
+      </label>
+      <div class="tier-note" id="tierNote"></div>
+      <h3>数量阶梯（当前商品）</h3>
+      <div id="ladderTable" class="ladder-table"></div>
+    </section>
+
+    <section class="card">
+      <h2>询价试算</h2>
+      <label>采购数量
+        <input id="qtyInput" type="number" min="1" value="100">
+      </label>
+      <div id="calcBox" class="calc-box"></div>
+      <button id="addLineBtn" class="secondary">＋ 加入报价单</button>
+    </section>
+  </div>
+
+  <section class="card quote-card">
+    <h2>报价单</h2>
+    <div class="quote-head">
+      <label>客户名称<input id="customerInput" placeholder="XX 商贸有限公司"></label>
+      <label>报价有效期（天）<input id="validDays" type="number" value="15" min="1"></label>
+    </div>
+    <table class="quote-table" id="quoteTable"></table>
+    <div class="quote-foot" id="quoteFoot"></div>
+    <div class="btn-row">
+      <button id="clearBtn" class="ghost">清空</button>
+      <button id="exportBtn" class="primary">📄 打印 / 导出报价单</button>
+    </div>
+  </section>
+</main>
+
+<script src="pricing.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
