@@ -1,0 +1,63 @@
+:root {
+  --bg: #f2f4f7; --card: #fff; --ink: #1f2937; --muted: #6b7280;
+  --accent: #0f766e; --accent-dark: #115e59; --line: #e5e7eb;
+  --gold: #b45309;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: var(--bg); color: var(--ink); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 30px 20px 60px; }
+.head { text-align: center; margin-bottom: 24px; }
+.head h1 { font-size: 24px; margin-bottom: 6px; }
+.head p { color: var(--muted); font-size: 13px; }
+
+.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+.card { background: var(--card); border-radius: 16px; padding: 22px; box-shadow: 0 3px 12px rgba(31,41,55,.06); }
+.card h2 { font-size: 15px; margin-bottom: 16px; }
+.card h3 { font-size: 13px; color: var(--muted); margin: 16px 0 10px; }
+
+label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 14px; }
+input, select { display: block; width: 100%; margin-top: 6px; height: 40px; border: 1px solid var(--line); border-radius: 10px; padding: 0 12px; font-size: 14px; background: #fff; font-family: inherit; }
+input:focus, select:focus { outline: none; border-color: var(--accent); }
+
+.tier-row { display: flex; gap: 6px; margin-top: 8px; }
+.tier-btn { flex: 1; height: 38px; border: 1.5px solid var(--line); background: #fff; border-radius: 9px; font-size: 12px; cursor: pointer; }
+.tier-btn.active { border-color: var(--accent); background: #f0fdfa; color: var(--accent); font-weight: 700; }
+.tier-note { font-size: 12px; color: var(--gold); background: #fffbeb; border-radius: 8px; padding: 8px 12px; margin-top: -6px; }
+
+.ladder-table { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.ld-row { display: flex; justify-content: space-between; font-size: 13px; padding: 9px 14px; border-bottom: 1px solid var(--line); }
+.ld-row:last-child { border-bottom: none; }
+.ld-row.hit { background: #f0fdfa; font-weight: 700; color: var(--accent-dark); }
+.ld-row .min { font-family: ui-monospace, monospace; }
+
+.calc-box { background: #f8fafc; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+.calc-row { display: flex; justify-content: space-between; font-size: 13px; padding: 4px 0; color: var(--muted); }
+.calc-row b { color: var(--ink); }
+.calc-row .save { color: var(--gold); }
+.calc-unit { font-size: 30px; font-weight: 800; color: var(--accent-dark); }
+.calc-next { font-size: 12px; color: var(--accent); margin-top: 8px; }
+
+.secondary { width: 100%; height: 42px; border: 1.5px solid var(--accent); background: #fff; color: var(--accent); border-radius: 11px; font-size: 14px; font-weight: 700; cursor: pointer; }
+.secondary:hover { background: #f0fdfa; }
+
+/* 报价单 */
+.quote-head { display: grid; grid-template-columns: 1fr 160px; gap: 12px; }
+.quote-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 14px 0; }
+.quote-table th { text-align: left; color: var(--muted); font-weight: 500; font-size: 12px; padding: 8px; border-bottom: 2px solid var(--line); }
+.quote-table td { padding: 10px 8px; border-bottom: 1px solid var(--line); }
+.quote-table .del { border: none; background: none; color: var(--muted); cursor: pointer; }
+.quote-table .del:hover { color: #dc2626; }
+.quote-foot { text-align: right; font-size: 14px; }
+.quote-foot strong { font-size: 24px; color: var(--accent-dark); margin-left: 8px; }
+.btn-row { display: flex; gap: 10px; margin-top: 16px; }
+.primary { flex: 1; height: 44px; border: none; border-radius: 11px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; cursor: pointer; }
+.primary:hover { background: var(--accent-dark); }
+.ghost { height: 44px; padding: 0 18px; border: 1px solid var(--line); background: #fff; border-radius: 11px; color: var(--muted); cursor: pointer; }
+
+@media (max-width: 760px) { .layout { grid-template-columns: 1fr; } }
+
+@media print {
+  body { background: #fff; }
+  .head, .layout, .btn-row, .del { display: none !important; }
+  .quote-card { box-shadow: none; }
+}
